@@ -1,0 +1,63 @@
+<div class="row">
+  <div class="col">
+    <p class="fw-bold text-center">Scales</p>
+    <ul class="list-group list-group-horizontal pb-3 overflow-auto justify-content-sm-center">
+      <a href="javascript:void(0)" class="list-group-item list-group-item-action text-center" [ngClass]="{ active: selectedScale === note }" (click)="onChangeScale(note)" *ngFor="let note of notes">
+        {{ note | uppercase }}
+      </a>
+    </ul>
+  </div>
+</div>
+<hr />
+<div class="row justify-content-center">
+  <div class="col-sm-1 mb-2">
+    <label for="transpose"><strong>Transpose: </strong></label>
+  </div>
+  <div class="col-sm-2 mb-2">
+    <div class="input-group">
+      <button class="btn btn-outline-secondary" type="button" id="transposeMinus" (click)="decreaseTranspose()">&minus;</button>
+      <input type="text" class="form-control text-center" readonly disabled placeholder="Transpose" [(ngModel)]="transpose" />
+      <button class="btn btn-outline-secondary" type="button" id="transposePlus" (click)="increaseTranspose()">&plus;</button>
+    </div>
+  </div>
+  <div class="col-sm-1">
+    <label for="type"><strong>Type: </strong></label>
+  </div>
+  <div class="col-sm-1 col-3">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" value="Major" [(ngModel)]="selectedType" (change)="generateScale()" />
+      <label class="form-check-label"> Major </label>
+    </div>
+  </div>
+  <div class="col-sm-1 col-3">
+    <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" value="Minor" [(ngModel)]="selectedType" (change)="generateScale()" />
+      <label class="form-check-label"> Minor </label>
+    </div>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col-sm-12 col-6 text-center">
+    <label for="" class="fw-bold">Original</label>
+    <ul class="list-group list-group-horizontal-sm justify-content-center">
+      <li class="list-group-item tex" *ngFor="let note of originalScale">
+        {{ note }}
+      </li>
+    </ul>
+  </div>
+  <div class="col-sm-12 col-6 text-center">
+    <label for="" class="fw-bold">Transposed</label>
+    <ul class="list-group list-group-horizontal-sm justify-content-center">
+      <li class="list-group-item tex" *ngFor="let note of transposedScale">
+        {{ note }}
+      </li>
+    </ul>
+  </div>
+</div>
+<hr />
+<div class="row">
+  <div class="col">
+    <router-outlet></router-outlet>
+  </div>
+</div>
