@@ -1,3 +1,4 @@
+<app-header></app-header>
 <div class="container-fluid">
   <div class="row">
     <div class="col">
@@ -74,18 +75,8 @@
       <label for="scale"><strong>Scale: </strong></label>
     </div>
     <div class="col-sm-2 mb-2">
-      <select
-        name="scale"
-        id="scale"
-        class="form-select"
-        [(ngModel)]="selectedScale"
-        (change)="generateScale()"
-      >
-        <option
-          [value]="note"
-          *ngFor="let note of notes"
-          [selected]="note == selectedScale"
-        >
+      <select name="scale" id="scale" class="form-select" [(ngModel)]="selectedScale" (change)="generateScale()">
+        <option [value]="note" *ngFor="let note of notes" [selected]="note == selectedScale">
           {{ note }}
         </option>
       </select>
@@ -95,28 +86,9 @@
     </div>
     <div class="col-sm-2 mb-2">
       <div class="input-group">
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          id="transposeMinus"
-          (click)="decreaseTranspose()"
-        >
-          -
-        </button>
-        <input
-          type="text"
-          class="form-control text-center"
-          placeholder="Transpose"
-          [(ngModel)]="transpose"
-        />
-        <button
-          class="btn btn-outline-secondary"
-          type="button"
-          id="transposePlus"
-          (click)="increaseTranspose()"
-        >
-          +
-        </button>
+        <button class="btn btn-outline-secondary" type="button" id="transposeMinus" (click)="decreaseTranspose()">-</button>
+        <input type="text" class="form-control text-center" placeholder="Transpose" [(ngModel)]="transpose" />
+        <button class="btn btn-outline-secondary" type="button" id="transposePlus" (click)="increaseTranspose()">+</button>
       </div>
     </div>
     <div class="col-sm-1">
@@ -124,27 +96,13 @@
     </div>
     <div class="col-sm-1 col-3">
       <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="type"
-          value="Major"
-          [(ngModel)]="selectedType"
-          (change)="generateScale()"
-        />
+        <input class="form-check-input" type="radio" name="type" value="Major" [(ngModel)]="selectedType" (change)="generateScale()" />
         <label class="form-check-label"> Major </label>
       </div>
     </div>
     <div class="col-sm-1 col-3">
       <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="type"
-          value="Minor"
-          [(ngModel)]="selectedType"
-          (change)="generateScale()"
-        />
+        <input class="form-check-input" type="radio" name="type" value="Minor" [(ngModel)]="selectedType" (change)="generateScale()" />
         <label class="form-check-label"> Minor </label>
       </div>
     </div>
