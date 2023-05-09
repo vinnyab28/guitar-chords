@@ -1,6 +1,13 @@
 {
   "name": "guitar-chords",
   "version": "1.0.0",
+  "author": {
+    "name": "G. Vineeth Prakash",
+    "url": "https://vinnyab28.github.io/guitar-chords"
+  },
+  "description": "The application displays the chords of a given scale along with the transponse.",
+  "homepage": "https://vinnyab28.github.io/guitar-chords",
+  "keywords": ["Guitar", "Scales", "Chords", "Notes", "Transpose", "Capo", "Theory of music", "Piano"],
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
