@@ -72,6 +72,11 @@ export class AppComponent implements OnInit {
     this.generateScale();
   }
 
+  onChangeScale(scale: string) {
+    this.selectedScale = scale;
+    this.generateScale();
+  }
+
   generateScale() {
     this.originalScale = [];
     this.transposedScale = [];

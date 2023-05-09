@@ -4,34 +4,24 @@
   <hr />
   <div class="row">
     <div class="col">
-      <p class="fw-bold text-center">Notes</p>
+      <p class="fw-bold text-center">Scales</p>
       <ul class="list-group list-group-horizontal pb-3 overflow-auto justify-content-sm-center">
-        <li class="list-group-item" *ngFor="let note of notes">
+        <a href="javascript:void(0)" class="list-group-item list-group-item-action text-center" [ngClass]="{ active: selectedScale === note }" (click)="onChangeScale(note)" *ngFor="let note of notes">
           {{ note | uppercase }}
-        </li>
+        </a>
       </ul>
     </div>
   </div>
   <hr />
   <div class="row justify-content-center">
     <div class="col-sm-1 mb-2">
-      <label for="scale"><strong>Scale: </strong></label>
-    </div>
-    <div class="col-sm-2 mb-2">
-      <select name="scale" id="scale" class="form-select" [(ngModel)]="selectedScale" (change)="generateScale()">
-        <option [value]="note" *ngFor="let note of notes" [selected]="note == selectedScale">
-          {{ note }}
-        </option>
-      </select>
-    </div>
-    <div class="col-sm-1 mb-2">
       <label for="transpose"><strong>Transpose: </strong></label>
     </div>
     <div class="col-sm-2 mb-2">
       <div class="input-group">
-        <button class="btn btn-outline-secondary" type="button" id="transposeMinus" (click)="decreaseTranspose()">-</button>
-        <input type="text" class="form-control text-center" placeholder="Transpose" [(ngModel)]="transpose" />
-        <button class="btn btn-outline-secondary" type="button" id="transposePlus" (click)="increaseTranspose()">+</button>
+        <button class="btn btn-outline-secondary" type="button" id="transposeMinus" (click)="decreaseTranspose()">&minus;</button>
+        <input type="text" class="form-control text-center" readonly disabled placeholder="Transpose" [(ngModel)]="transpose" />
+        <button class="btn btn-outline-secondary" type="button" id="transposePlus" (click)="increaseTranspose()">&plus;</button>
       </div>
     </div>
     <div class="col-sm-1">
