@@ -1,63 +1,67 @@
 <div class="container-fluid">
-  <div class="card my-2">
-    <div class="card-header">Key Chart</div>
-    <div class="card-body">
-      <div class="row">
-        <div class="col-sm-1">
-          <label for="major"><strong>Major: </strong></label>
-        </div>
-        <div class="col-sm-5">
-          <div class="hstack gap-3">
-            <div class="p-1"><strong>I</strong></div>
-            <div class="p-1">ii</div>
-            <div class="p-1">iii</div>
-            <div class="p-1"><strong>IV</strong></div>
-            <div class="p-1"><strong>V</strong></div>
-            <div class="p-1">vi*</div>
-            <div class="p-1">vii</div>
-            <div class="p-1">-</div>
-            <div class="p-1">W</div>
-            <div class="p-1">W</div>
-            <div class="p-1">H</div>
-            <div class="p-1">W</div>
-            <div class="p-1">W</div>
-            <div class="p-1">W</div>
-            <div class="p-1">H</div>
+  <div class="row">
+    <div class="col">
+      <div class="card my-2">
+        <div class="card-header">Key Chart</div>
+        <div class="card-body overflow-auto">
+          <div class="row">
+            <div class="col-sm-1">
+              <label for="major"><strong>Major: </strong></label>
+            </div>
+            <div class="col-sm-5">
+              <div class="hstack gap-3">
+                <div class="p-1"><strong>I</strong></div>
+                <div class="p-1">ii</div>
+                <div class="p-1">iii</div>
+                <div class="p-1"><strong>IV</strong></div>
+                <div class="p-1"><strong>V</strong></div>
+                <div class="p-1">vi*</div>
+                <div class="p-1">vii</div>
+                <div class="p-1">-</div>
+                <div class="p-1">W</div>
+                <div class="p-1">W</div>
+                <div class="p-1">H</div>
+                <div class="p-1">W</div>
+                <div class="p-1">W</div>
+                <div class="p-1">W</div>
+                <div class="p-1">H</div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1">
+              <label for="major"><strong>Minor: </strong></label>
+            </div>
+            <div class="col-sm-5">
+              <div class="hstack gap-3">
+                <div class="p-1">i</div>
+                <div class="p-1">ii</div>
+                <div class="p-1"><strong>III</strong></div>
+                <div class="p-1">iv</div>
+                <div class="p-1">v</div>
+                <div class="p-1"><strong>VI</strong></div>
+                <div class="p-1"><strong>VII</strong></div>
+                <div class="p-1">-</div>
+                <div class="p-1">W</div>
+                <div class="p-1">H</div>
+                <div class="p-1">W</div>
+                <div class="p-1">W</div>
+                <div class="p-1">H</div>
+                <div class="p-1">W</div>
+                <div class="p-1">W</div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-1">
-          <label for="major"><strong>Minor: </strong></label>
-        </div>
-        <div class="col-sm-5">
-          <div class="hstack gap-3">
-            <div class="p-1">i</div>
-            <div class="p-1">ii</div>
-            <div class="p-1"><strong>III</strong></div>
-            <div class="p-1">iv</div>
-            <div class="p-1">v</div>
-            <div class="p-1"><strong>VI</strong></div>
-            <div class="p-1"><strong>VII</strong></div>
-            <div class="p-1">-</div>
-            <div class="p-1">W</div>
-            <div class="p-1">H</div>
-            <div class="p-1">W</div>
-            <div class="p-1">W</div>
-            <div class="p-1">H</div>
-            <div class="p-1">W</div>
-            <div class="p-1">W</div>
-          </div>
-        </div>
+        <div class="card-footer">* - Relative Minor</div>
       </div>
     </div>
-    <div class="card-footer">* - Relative Minor</div>
   </div>
   <hr />
   <div class="row">
     <div class="col">
-      <p class="fw-bold">Notes</p>
-      <ul class="list-group list-group-horizontal">
+      <p class="fw-bold text-center">Notes</p>
+      <ul class="list-group list-group-horizontal pb-3 overflow-auto justify-content-center">
         <li class="list-group-item" *ngFor="let note of notes">
           {{ note | uppercase }}
         </li>
@@ -65,11 +69,11 @@
     </div>
   </div>
   <hr />
-  <div class="row">
-    <div class="col-sm-1">
+  <div class="row justify-content-center">
+    <div class="col-sm-1 mb-2">
       <label for="scale"><strong>Scale: </strong></label>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-2 mb-2">
       <select
         name="scale"
         id="scale"
@@ -86,39 +90,10 @@
         </option>
       </select>
     </div>
-    <div class="col-sm-1">
-      <label for="type"><strong>Type: </strong></label>
-    </div>
-    <div class="col-sm-1">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="type"
-          value="Major"
-          [(ngModel)]="selectedType"
-          (change)="generateScale()"
-        />
-        <label class="form-check-label"> Major </label>
-      </div>
-    </div>
-    <div class="col-sm-1">
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="type"
-          value="Minor"
-          [(ngModel)]="selectedType"
-          (change)="generateScale()"
-        />
-        <label class="form-check-label"> Minor </label>
-      </div>
-    </div>
-    <div class="col-sm-1">
+    <div class="col-sm-1 mb-2">
       <label for="transpose"><strong>Transpose: </strong></label>
     </div>
-    <div class="col-sm-2">
+    <div class="col-sm-2 mb-2">
       <div class="input-group">
         <button
           class="btn btn-outline-secondary"
@@ -144,21 +119,50 @@
         </button>
       </div>
     </div>
+    <div class="col-sm-1">
+      <label for="type"><strong>Type: </strong></label>
+    </div>
+    <div class="col-sm-1 col-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="type"
+          value="Major"
+          [(ngModel)]="selectedType"
+          (change)="generateScale()"
+        />
+        <label class="form-check-label"> Major </label>
+      </div>
+    </div>
+    <div class="col-sm-1 col-3">
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="radio"
+          name="type"
+          value="Minor"
+          [(ngModel)]="selectedType"
+          (change)="generateScale()"
+        />
+        <label class="form-check-label"> Minor </label>
+      </div>
+    </div>
   </div>
   <hr />
   <div class="row">
-    <div class="col-sm-12">
-      <label for="" class="fw-bold">Original: </label>
-      <ul class="list-group list-group-horizontal">
-        <li class="list-group-item" *ngFor="let note of originalScale">
+    <div class="col-sm-12 col-6 text-center">
+      <label for="" class="fw-bold">Original</label>
+      <ul class="list-group list-group-horizontal-sm justify-content-center">
+        <li class="list-group-item tex" *ngFor="let note of originalScale">
           {{ note }}
         </li>
       </ul>
     </div>
-    <div class="col-sm-12">
-      <label for="" class="fw-bold">Transposed: </label>
-      <ul class="list-group list-group-horizontal">
-        <li class="list-group-item" *ngFor="let note of transposedScale">
+    <div class="col-sm-12 col-6 text-center">
+      <label for="" class="fw-bold">Transposed</label>
+      <ul class="list-group list-group-horizontal-sm justify-content-center">
+        <li class="list-group-item tex" *ngFor="let note of transposedScale">
           {{ note }}
         </li>
       </ul>
