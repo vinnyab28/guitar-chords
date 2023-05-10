@@ -22,6 +22,7 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "deploy": "ng deploy --base-href=/guitar-chords/",
     "test": "ng test"
   },
   "private": true,
