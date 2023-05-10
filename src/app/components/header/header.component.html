@@ -1,13 +1,16 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
+    <a class="navbar-brand fs-2 fw-bold" href="#" [routerLink]="['/']">Guitar Chords</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+    <button type="button" class="btn" [ngClass]="{ 'btn-secondary': currentTheme === 'dark', 'btn-warning': currentTheme === 'light' }" (click)="onToggleTheme()">
+      <i [ngClass]="{ 'bi-moon-fill': currentTheme === 'light', 'bi-sun-fill': currentTheme === 'dark' }"></i>
+    </button>
     <div class="collapse navbar-collapse" id="navbarToggler">
-      <a class="navbar-brand" href="#" [routerLink]="['/']">Guitar Chords</a>
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#" [routerLink]="['home','key-chart']" router>Key Chart</a>
+          <a class="nav-link active" aria-current="page" href="#" [routerLink]="['home', 'key-chart']" router>Key Chart</a>
         </li>
       </ul>
     </div>
