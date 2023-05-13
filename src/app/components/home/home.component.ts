@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit {
     this.originalScale = [];
     this.transposedScale = [];
     let scale_index = this.notes.findIndex((note) => note === this.selectedScale);
-    let transposed_scale_index = scale_index + this.transpose;
+    let transposed_scale_index = Math.abs(scale_index + this.transpose);
 
     if (this.selectedType === TYPES.MAJOR) {
       for (let i = 0; i < 7; i++) {
