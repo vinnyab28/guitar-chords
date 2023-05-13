@@ -33,8 +33,8 @@ jobs:
     steps:
       - name: Configure GIT
         run: |
-          git config --local user.name "G. Vineeth Prakash"
-          git config --local user.email "gudipallivineethprakash@karunya.edu.in"
+          git config user.name "G. Vineeth Prakash"
+          git config user.email "gudipallivineethprakash@karunya.edu.in"
       - name: Checkout
         uses: actions/checkout@v3
         with:
