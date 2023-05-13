@@ -67,8 +67,8 @@ jobs:
           # 👆 if cache hits the skip this step.
         run: npm ci
       
-      - name: Build
-        run: npm run build
+#       - name: Build
+#         run: npm run build
         
       - name: Deploy
         run: npm run deploy
