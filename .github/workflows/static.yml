@@ -31,10 +31,10 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-#       - name: Configure GIT
-#         run: |
-#           git config user.name "G. Vineeth Prakash"
-#           git config user.email "gudipallivineethprakash@karunya.edu.in"
+      - name: Configure GIT
+        run: |
+          git config user.name "G. Vineeth Prakash"
+          git config user.email "gudipallivineethprakash@karunya.edu.in"
       - name: Checkout
         uses: actions/checkout@main
         with:
