@@ -24,12 +24,9 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  ci:
+  deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [16.x]
+    
     steps:
 #       - name: Configure GIT
 #         run: |
