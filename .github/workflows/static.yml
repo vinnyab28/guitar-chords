@@ -16,6 +16,7 @@ jobs:
       with:
         repository: ${{github.repository}}
         token: ${{secrets.PAT}}
+        path: guitar-chords
         
     - name: Install Dependencies
       working-directory: guitar-chords
