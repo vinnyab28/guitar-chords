@@ -31,16 +31,16 @@ jobs:
       matrix:
         node-version: [16.x]
     steps:
-      - name: Configure GIT
-        run: |
-            git config --global user.name "G. Vineeth Prakash"
-            git config --global user.email "gudipallivineethprakash@karunya.edu.in"
+#       - name: Configure GIT
+#         run: |
+#             git config --global user.name "G. Vineeth Prakash"
+#             git config --global user.email "gudipallivineethprakash@karunya.edu.in"
 
       - name: Checkout
         uses: actions/checkout@v3
         with:
           repository: ${{github.repository}}
-          token: ${{secrets.PAT}}
+          token: ${{secrets.GITHUB_TOKEN}}
       
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v1
