@@ -4,7 +4,8 @@ name: Deploy Guitar Chords
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: ["main"]
+    branches:
+      - main
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,20 +24,25 @@ concurrency:
 
 jobs:
   # Single deploy job since we're just deploying
-  ci:
+  deploy:
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x]
+    
     steps:
+#       - name: Configure GIT
+#         run: |
+#             git config --global user.name "G. Vineeth Prakash"
+#             git config --global user.email "gudipallivineethprakash@karunya.edu.in"
+
       - name: Checkout
-      - uses: actions/checkout@v2
-      
-      - name: Use Node.js $
-      - uses: actions/setup-node@v1
+        uses: actions/checkout@v3
         with:
-          node-version: $
+          repository: ${{github.repository}}
+          token: ${{secrets.PAT}}
+      
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
           
       - name: Cache node modules
         id: cache-nodemodules
@@ -59,7 +65,8 @@ jobs:
           # 👆 if cache hits the skip this step.
         run: npm ci
       
-      - name: Build
-        run: |
-          npm run build -- --prod
-  
+#       - name: Build
+#         run: npm run build
+        
+      - name: Deploy
+        run: npm run deploy
